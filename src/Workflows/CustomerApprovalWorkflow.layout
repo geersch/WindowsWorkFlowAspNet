@@ -1,0 +1,64 @@
+﻿<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Name="CustomerApprovalWorkflow" Location="30; 30" Size="1044; 541" AutoSizeMargin="16; 24" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<StateMachineWorkflowDesigner.DesignerConnectors>
+		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="Completed" SourceConnectionIndex="0" TargetConnectionEdge="Top" SetStateName="setStateActivity1" SourceStateName="Initial" SourceConnectionEdge="Right" TargetActivity="Completed" SourceActivity="Initial" EventHandlerName="onApproved">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="150" Y="136" />
+				<ns0:Point X="302" Y="136" />
+				<ns0:Point X="302" Y="96" />
+				<ns0:Point X="482" Y="96" />
+				<ns0:Point X="482" Y="104" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="Completed" SourceConnectionIndex="1" TargetConnectionEdge="Top" SetStateName="setStateActivity2" SourceStateName="Initial" SourceConnectionEdge="Right" TargetActivity="Completed" SourceActivity="Initial" EventHandlerName="onRejected">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="146" Y="160" />
+				<ns0:Point X="302" Y="160" />
+				<ns0:Point X="302" Y="96" />
+				<ns0:Point X="482" Y="96" />
+				<ns0:Point X="482" Y="104" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="Completed" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity3" SourceStateName="Initial" SourceConnectionEdge="Right" TargetActivity="Completed" SourceActivity="Initial" EventHandlerName="onTimeout">
+			<StateDesignerConnector.Segments>
+				<ns0:Point X="144" Y="184" />
+				<ns0:Point X="302" Y="184" />
+				<ns0:Point X="302" Y="96" />
+				<ns0:Point X="482" Y="96" />
+				<ns0:Point X="482" Y="104" />
+			</StateDesignerConnector.Segments>
+		</StateDesignerConnector>
+	</StateMachineWorkflowDesigner.DesignerConnectors>
+	<StateMachineWorkflowDesigner.Designers>
+		<StateDesigner Name="Initial" Location="46; 71" Size="244; 136" AutoSizeMargin="16; 24">
+			<StateDesigner.Designers>
+				<EventDrivenDesigner Size="150; 242" Name="onApproved" Location="54; 126">
+					<EventDrivenDesigner.Designers>
+						<HandleExternalEventActivityDesigner Size="130; 41" Name="handleApproval" Location="64; 188" />
+						<CodeDesigner Size="130; 41" Name="codeActivityApproveCustomer" Location="64; 248" />
+						<SetStateDesigner Size="130; 41" Name="setStateActivity1" Location="64; 308" />
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Size="150; 242" Name="onRejected" Location="54; 150">
+					<EventDrivenDesigner.Designers>
+						<HandleExternalEventActivityDesigner Size="130; 41" Name="handleRejection" Location="64; 212" />
+						<CodeDesigner Size="130; 41" Name="codeActivityRejectCustomer" Location="64; 272" />
+						<SetStateDesigner Size="130; 41" Name="setStateActivity2" Location="64; 332" />
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Size="150; 242" Name="onTimeout" Location="54; 174">
+					<EventDrivenDesigner.Designers>
+						<DelayDesigner Size="130; 41" Name="delayActivity" Location="64; 236" />
+						<CodeDesigner Size="130; 41" Name="codeActivityDeleteCustomer" Location="64; 296" />
+						<SetStateDesigner Size="130; 41" Name="setStateActivity3" Location="64; 356" />
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<StateInitializationDesigner Size="150; 122" Name="stateInitializationActivity" Location="54; 102">
+					<StateInitializationDesigner.Designers>
+						<CodeDesigner Size="130; 41" Name="codeActivityCreateAccount" Location="64; 164" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Name="Completed" Location="402; 104" Size="160; 80" AutoSizeMargin="16; 24" />
+	</StateMachineWorkflowDesigner.Designers>
+</StateMachineWorkflowDesigner>
